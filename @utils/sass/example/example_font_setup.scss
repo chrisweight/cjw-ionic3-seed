@@ -1,0 +1,19 @@
+@import "../font_style_generator";
+
+$fontName: 'Example Font-Family Name';
+$fontClass: '.example-icons';
+$fontSize: 24px;
+$fontWeight: 400;
+$prefix: 'ex';
+$path: './ExampleFont-Regular';
+
+$icons: (
+  example-icon-one: e84d,
+  example-icon-two: eb3b,
+  example-icon-three: e190
+);
+
+@include generateFontCSS(
+    $fontClass, $fontName, $fontSize, $fontWeight, $path, $prefix, $icons
+);
+

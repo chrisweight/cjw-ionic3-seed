@@ -30,6 +30,26 @@ plugins/ios.json
 www/
 $RECYCLE.BIN/
 
-.DS_Store
+# Windows
 Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+**/.DS_Store
+
+# Ngc generated files
+**/*.ngfactory.ts
+
+# Build files
+dist/*
+build/*
+
+yarn-error.log
+
+src/node_modules/
+
+# sass
+.sass-cache
+
 UserInterfaceState.xcuserstate

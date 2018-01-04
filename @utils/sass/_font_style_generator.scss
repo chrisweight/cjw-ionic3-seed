@@ -1,0 +1,85 @@
+// _font_style_generator.scss
+
+/**
+ * Simple utility mixin to help generate custom font icon CSS for use in Ionic 2/3 projects
+ *
+ * This does NOT generate the required font files! These need to be created elsewhere!
+ * See the 'example' directory for a simple fake setup (without physical font files)
+ *
+ * Compile this to sass using: sass example_font_setup.scss example_font.scss
+ *
+ * @param $fontClass    .desired-font-class-name
+ * @param $fontName     the actual font family name
+ * @param $fontSize     preferred font size
+ * @param $fontWeight   preferred font weight
+ * @param $path         physical path to the font files, including file name without extension
+ * @param $prefix       string shortcode that is prepended to all generated classes
+ * @param $icons        key/value SASS map that represents the font icon names and character codes, i.e.
+ *                        $icons: (
+ *                          3d-rotation: e84d,
+ *                          ac-unit: eb3b,
+ *                          ...
+ *                        );
+ */
+@mixin generateFontCSS($fontClass, $fontName, $fontSize, $fontWeight, $path, $prefix, $icons) {
+
+  // Create the actual font-face embed
+  @font-face {
+    font-family: '#{$fontName}';
+    font-style: normal;
+    font-weight: #{$fontWeight};
+    src: url('#{$path}.eot'); /* For IE6-8 */
+    src: url('#{$path}.woff2') format('woff2'),
+    url('#{$path}.woff') format('woff'),
+    url('#{$path}.ttf') format('truetype'),
+    url('#{$path}.svg') format('svg');
+  }
+
+  // Generate the parent-class
+  #{$fontClass} {
+    font-family: '#{$fontName}' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-size: #{$fontSize}; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
+  // Next create the 'before' CSS needed
+  [class^="#{$prefix}-"]:before,
+  [class*=" #{$prefix}-"]:before,
+  [class*="-#{$prefix}-"]:before {
+    @extend #{$fontClass};
+  }
+
+  // Finally, actually generate the font symbol CSS
+  @each $name, $code in $icons {
+    $withslash: "\"\\#{$code}\"";
+
+    .#{$prefix}-#{$name}:before,
+    .ion-ios-#{$prefix}-#{$name}:before,
+    .ion-ios-#{$prefix}-#{$name}-outline:before,
+    .ion-md-#{$prefix}-#{$name}:before,
+    .ion-md-#{$prefix}-#{$name}-outline:before {
+      content: unquote($withslash);
+    }
+  }
+}
+
