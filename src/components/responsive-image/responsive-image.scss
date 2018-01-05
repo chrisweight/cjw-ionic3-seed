@@ -1,3 +1,18 @@
 responsive-image {
 
+  position: relative;
+  display: block;
+
+  .responsive-image--container {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
 }
