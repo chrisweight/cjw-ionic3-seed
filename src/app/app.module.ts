@@ -7,6 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+// NOTE: Don't forget to do `mobxAngularDebug(true)` in the browser console!
+import { MobxAngularModule } from 'mobx-angular';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +17,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    MobxAngularModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
