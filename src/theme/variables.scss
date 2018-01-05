@@ -33,6 +33,8 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+@import "_colours.scss";
+
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
@@ -40,6 +42,8 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222
 );
+
+$colors: map_merge($colors, $customColours);
 
 
 // App iOS Variables
@@ -71,6 +75,7 @@ $colors: (
 // default are overridden.
 
 @import "ionic.theme.default";
+@import "overrides";
 
 
 // Ionicons
