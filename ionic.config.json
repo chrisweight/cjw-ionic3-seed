@@ -1,6 +1,6 @@
 {
-  "name": "cjw-ionic-seed",
-  "app_id": "",
+  "name": "${projectName}",
+  "app_id": "${appIdentifier}",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

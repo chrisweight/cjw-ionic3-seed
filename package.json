@@ -1,8 +1,12 @@
 {
-  "name": "cjw-ionic-seed",
+  "name": "${projectName}",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Chris Weight",
+  "homepage": "http://www.chrisweight.com/",
+  "repository": {
+    "type": "git",
+    "url": "{$projectRepoUrl}"
+  },
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -38,10 +42,14 @@
     "@ionic/app-scripts": "3.1.6",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project",
+  "description": "${projectDescription}",
   "cordova": {
     "plugins": {
       "cordova-plugin-inappbrowser": {}
     }
-  }
+  },
+  "platforms": [
+    "ios",
+    "android"
+  ]
 }
