@@ -9,6 +9,7 @@
     "./config.xml",
     "./ionic.config.json",
     "./package.json",
+    "./package-lock.json",
     "./src/index.html"
   ]
 }
