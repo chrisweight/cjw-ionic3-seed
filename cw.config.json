@@ -1,0 +1,14 @@
+{
+  "keys": {
+    "name": "${projectName}",
+    "description": "${projectDescription}",
+    "identifier": "${appIdentifier}",
+    "repo": "{$projectRepoUrl}"
+  },
+  "fileList": [
+    "./config.xml",
+    "./ionic.config.json",
+    "./package.json",
+    "./src/index.html"
+  ]
+}
