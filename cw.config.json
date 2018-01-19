@@ -10,6 +10,8 @@
     "./ionic.config.json",
     "./package.json",
     "./package-lock.json",
-    "./src/index.html"
+    "./src/index.html",
+    "./README.md",
+    "./CHANGELOG.md"
   ]
 }
